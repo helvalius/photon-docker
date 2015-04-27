@@ -22,6 +22,7 @@ By default the container exposes port `2322` as web port, links nominatim.
 ```
 docker run -p 2322:2322  --link nominatim_container:nominatim -ti photon
 
+```
 
 Connect to the  webserver with curl. If this succeeds, open [http://localhost:2322/](http:/localhost:2322) in a web browser
 

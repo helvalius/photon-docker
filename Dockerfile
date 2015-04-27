@@ -24,17 +24,18 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /photon
 WORKDIR /photon
+
+# Expose Photon Webservice
 EXPOSE 2322
 
+# Expose ES
+EXPOSE 9200
+
+# Download photon release 0.2.2
 RUN wget http://photon.komoot.de/data/photon-0.2.2.jar
 
 # VOLUME /photon/photon_data
 # RUN mvn clean package
 # RUN java -jar target/photon-0.2.3-SNAPSHOT.jar
 
-ENTRYPOINT java -jar photon-0.2.2.jar
-
-# Requires nominatim to be running and linked to 'nominatim'
-CMD [ "-nomatim-import", "-host", NOMINATIM_NAME,"-port","NOMINATIM_PORT_5432_TCP","-user","docker","-password","docker"]
-
-# java -jar photon-0.2.2.jar -nominatim-import -host 192.168.59.103 -port 32775 -user docker -password docker
+CMD java -jar photon-0.2.2.jar  -nominatim-import -host $NOMINATIM_NAME -port $NOMINATIM_PORT_5432_TCP_PORT -user docker -password 05b6053c41a2130afd6fc3b158bda4e6 -languages de
