@@ -2,7 +2,7 @@
 
 Run [https://github.com/komoot/photon](https://github.com/komoot/photon) 0.2.2 in a docker container.
 
-Uses phusion/baseimage (Ubuntu 14.04). Requires a running nominatim for data import. The embedded ES database is not exposed as volumes and thus data is removed if container is removed.
+Uses phusion/baseimage (Ubuntu 14.04). Requires a running nominatim for data import. It is built to work together with https://registry.hub.docker.com/u/helvalius/nominatim-docker-development/ . The embedded ES database is not exposed as volumes and thus data is removed if container is removed.
 
 
 # Building

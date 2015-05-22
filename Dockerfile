@@ -2,6 +2,8 @@ FROM phusion/baseimage:0.9.16
 # Set correct environment variables.
 ENV HOME /root
 
+MAINTAINER Jan Nonnen <helvalius@gmail.com>
+
 # Regenerate SSH host keys. baseimage-docker does not contain any, so you
 # have to do that yourself. You may also comment out this instruction; the
 # init system will auto-generate one during boot.
@@ -38,4 +40,4 @@ RUN wget http://photon.komoot.de/data/photon-0.2.2.jar
 # RUN mvn clean package
 # RUN java -jar target/photon-0.2.3-SNAPSHOT.jar
 
-CMD java -jar photon-0.2.2.jar  -nominatim-import -host $NOMINATIM_NAME -port $NOMINATIM_PORT_5432_TCP_PORT -user docker -password 05b6053c41a2130afd6fc3b158bda4e6 -languages de
+CMD java -jar photon-0.2.2.jar  -nominatim-import -host $NOMINATIM_PORT_5432_TCP_ADDR -port $NOMINATIM_PORT_5432_TCP_PORT -languages de
