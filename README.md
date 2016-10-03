@@ -20,7 +20,7 @@ By default the container exposes port `2322` as web port, links nominatim.
  To run the container execute
 
 ```
-docker run -p 2322:2322  --link nominatim_container:nominatim -ti photon
+docker run -e "ENABLED_LANGUAGES=de,en" -p 2322:2322  --link nominatim_container:nominatim -ti photon
 
 ```
 

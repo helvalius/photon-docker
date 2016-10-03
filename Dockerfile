@@ -40,4 +40,4 @@ RUN wget http://photon.komoot.de/data/photon-0.2.2.jar
 # RUN mvn clean package
 # RUN java -jar target/photon-0.2.3-SNAPSHOT.jar
 
-CMD java -jar photon-0.2.2.jar  -nominatim-import -host $NOMINATIM_PORT_5432_TCP_ADDR -port $NOMINATIM_PORT_5432_TCP_PORT -languages de
+CMD java -jar photon-0.2.2.jar  -nominatim-import -host $NOMINATIM_PORT_5432_TCP_ADDR -port $NOMINATIM_PORT_5432_TCP_PORT -languages $ENABLED_LANGUAGES
