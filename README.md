@@ -20,8 +20,12 @@ By default the container exposes port `2322` as web port, links nominatim.
  To run the container execute
 
 ```
-docker run -e "ENABLED_LANGUAGES=de,en" -p 2322:2322  --link nominatim_container:nominatim -ti photon
-
+# do import
+sudo docker run --name photon -e "ENABLED_LANGUAGES=de,en" -p 2322:2322  --link nominatim:nominatim -ti photon
+# save imported data
+sudo docker commit photon
+# run webapi
+sudo docker run -p 2322:2322 photon java -jar photon-0.2.2.jar -languages de,en
 ```
 
 Connect to the  webserver with curl. If this succeeds, open [http://localhost:2322/](http:/localhost:2322) in a web browser
