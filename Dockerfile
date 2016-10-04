@@ -30,9 +30,6 @@ WORKDIR /photon
 # Expose Photon Webservice
 EXPOSE 2322
 
-# Expose ES
-EXPOSE 9200
-
 # Download photon release 0.2.2
 RUN wget http://photon.komoot.de/data/photon-0.2.2.jar
 
